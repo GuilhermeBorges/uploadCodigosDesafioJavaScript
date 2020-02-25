@@ -11,9 +11,7 @@ lines.forEach(element => {
     var Y = parseInt(element[1])
     var soma = 0
     var i = 0
-    X
-    Y
-    
+        
     if (X > Y){
         var Z = Y
         Y = X
