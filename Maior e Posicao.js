@@ -3,17 +3,28 @@ var lines = input.split('\n');
 
 var maior = 0
 var posicao = 0
-var x = 0
-var i = 0
-lines.forEach(element => {
-    element.trim()
-    x = parseInt(element)
-    if (maior < x){
-        maior = element
-        posicao = i+1
-    }
-    i++    
-});
-
+lines.forEach((element, index) => {
+  element.trim()
+  if (maior < parseInt(element)) {
+    maior = element
+    posicao = index + 1
+  }
+})
 console.log(maior)
 console.log(posicao)
+
+
+
+// Uma outra maneira de fazer é utilizando o reduce e o deconstructor, acreditamos que esta seria a melhor
+/**
+ const {maior, posicao} = lines.reduce((acomulado, element, index) => {
+   if (acomulado.maior < parseInt(element)) {
+     acomulado.maior = element
+     acomulado.posicao = index + 1
+    }
+    return acomulado
+  }, { maior: 0, posicao: 0 })
+  console.log(maior)
+  console.log(posicao)
+*/
+
