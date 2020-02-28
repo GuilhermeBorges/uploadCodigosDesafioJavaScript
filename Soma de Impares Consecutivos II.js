@@ -1,7 +1,6 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 
-var n = 0
 lines.shift()
 
 lines.forEach(element => {
@@ -19,8 +18,8 @@ lines.forEach(element => {
     }
     
     for (i = X+1; i < Y; i++) {
-        if ((i%2) === 1){
-            soma = soma + i
+        if (i%2){
+            soma += i
         }
     }
     
