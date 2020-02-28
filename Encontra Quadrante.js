@@ -1,30 +1,28 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
+function toNumber(entry) {
+  return (entry instanceof Array)
+    ? entry.map(Number)
+    : Number(entry)
+}
 
-lines = lines.trim();
-lines = lines.split(' ');
+function formatEntry(entry) {
+  return lines
+    .map(l => l.split(' '))
+    .map(toNumber)
+}
 
-var x = parseFloat(lines[0]);
-var y = parseFloat(lines[1]);
+entrada = formatEntry(lines)[0]
 
-if (x === 0 && y === 0){
-	console.log('Origem');
+function encontraQuadrante(x, y) {
+  let ponto = {x,y}
+    if (ponto.x == 0 && ponto.y == 0) return 'Origem'
+    if (ponto.x == 0) return 'Eixo Y'
+    if (ponto.y == 0) return 'Eixo X'
+    if (ponto.x > 0 && ponto.y > 0) return 'Q1'
+    if (ponto.x > 0 && ponto.y < 0) return 'Q4'
+    if (ponto.x < 0 && ponto.y > 0) return 'Q2'
+    if (ponto.x < 0 && ponto.y < 0) return 'Q3'
 }
-else if (x === 0 && (y < 0 || y > 0)){
-	console.log('Eixo Y');
-}
-else if ((x < 0 || x > 0) && y === 0){
-	console.log('Eixo X');
-}
-else if (x > 0 && y > 0){
-	console.log('Q1');
-}
-else if (x < 0 && y > 0){
-	console.log('Q2');
-}
-else if (x < 0 && y < 0){
-	console.log('Q3');
-}
-else if (x > 0 && y < 0){
-	console.log('Q4');
-}
+
+console.log(encontraQuadrante(entrada[0],entrada[1]))
