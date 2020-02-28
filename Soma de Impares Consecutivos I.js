@@ -7,17 +7,16 @@ var y = parseInt(lines[1]);
 var z = 0
 var n = 0
 
-if (x > y){
+if (x > y) {
 	z = y;
 	y = x;
     x = z;
 }
 
-if ((x%2) === 0){
+if ((x%2) === 0) {
     n = x + 1;
-}
-else{
-	n = x + 2;
+} else {
+    n = x + 2;
 }
 
 for (var i = n; i < y; i += 2) {
