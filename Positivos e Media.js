@@ -12,8 +12,6 @@ lines.forEach(element => {
         positivo.push(x)
     }    
 });
-sum
 var media = sum/(positivo.length)
-media
 console.log((positivo.length) + ' valores positivos')
 console.log(media.toFixed(1))
